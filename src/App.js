@@ -1,15 +1,15 @@
-import { useState } from 'react';
+// import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import './App.css';
+import ButtonPlay from './playground/ButtonPlay';
 
 function App() {
-  const [count, setCount] = useState(1);
   return (
-    <div className="App">
-      {count}
-      <button onClick={()=> setCount(count + 1)}>+</button>
-      <button onClick={()=> setCount(count - 1)}>-</button>
-
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="playground/button" element={<ButtonPlay/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

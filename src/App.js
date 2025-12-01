@@ -7,7 +7,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="playground/button" element={<ButtonPlay/>}/>
+        <Route path="/" element={<ButtonPlay/>}/>
       </Routes>
     </BrowserRouter>
   );

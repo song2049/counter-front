@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Button = ({ type }) => {
+const Counter = ({ type }) => {
     const [count, setCount] = useState(1);
 
     const handleClick = () => {
@@ -13,4 +13,4 @@ const Button = ({ type }) => {
     );
 };
 
-export default Button;
+export default Counter;

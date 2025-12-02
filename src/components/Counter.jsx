@@ -17,11 +17,16 @@ const Counter = () => {
         const { data } = await axios.post(`${process.env.REACT_APP_BACK_API}/increment`);
         setCount(data.count);
     }
-
+    const fetchDecrement = async () => {
+        const { data } = await axios.post(`${process.env.REACT_APP_BACK_API}/decrement`);
+        setCount(data.count);
+    }
     return (
         <div className="Counter">
             {count}
             <button onClick={fetchIncrement}>+</button>
+            <button onClick={fetchDecrement}>-</button>
+
         </div>
     );
 }

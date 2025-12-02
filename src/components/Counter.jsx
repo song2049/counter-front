@@ -1,16 +1,29 @@
-import React, { useState } from "react";
+import { useEffect, useState } from 'react';
+import axios from "axios";
 
-const Counter = ({ type }) => {
+const Counter = () => {
     const [count, setCount] = useState(1);
+    // http://localhost:3001으로 요청하면서 테스트
 
-    const handleClick = () => {
-        if (type === "incread") setCount(count + 1);
-        else setCount(count - 1);
-    };
+    useEffect(() => {
+        const getCount = async () => {
+            const { data } = await axios.get(`${process.env.REACT_APP_BACK_API}/`);
+            setCount(data.count);
+        }
+        getCount();
+    }, [])
+
+    const fetchIncrement = async () => {
+        const { data } = await axios.post(`${process.env.REACT_APP_BACK_API}/increment`);
+        setCount(data.count);
+    }
 
     return (
-        <button onClick={handleClick}>{count}</button>
+        <div className="Counter">
+            {count}
+            <button onClick={fetchIncrement}>+</button>
+        </div>
     );
-};
+}
 
 export default Counter;

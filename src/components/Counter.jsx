@@ -23,7 +23,8 @@ const Counter = () => {
     }
     return (
         <div className="Counter">
-            {count}
+            <span className="count-label">count:</span>
+            <span className="count-value">{count}</span>
             <button onClick={fetchIncrement}>+</button>
             <button onClick={fetchDecrement}>-</button>
 
